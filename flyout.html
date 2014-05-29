@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  
+
+    <script type="text/javascript" src="js/atrms.api.js" ></script>
+     <script type="text/javascript" src="js/storage.js" ></script>
+    <script type="text/javascript" src="js/core.js" ></script>
+    <script type="text/javascript" src="js/mustache.js" ></script>
+    <script type="text/javascript" src="js/moment.min.js" ></script>
+
+  
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+
+    
+
+    <h2>My Roster</h2>
+
+    <div id="loading" style="display:none"><img src="/images/loading.gif" /></div>
+
+    <div id="app-panel" style="display:none">
+
+        <div id="accordion">
+
+        </div>   
+
+    </div>
+
+
+    <script id="pickup-template" type="x-tmpl-mustache">
+    <h3>Pickup</h3>
+
+
+    <div>
+
+    <div id="drop-row" class="panel panel-primary">
+
+    <div class="panel-heading header-panel">
+    <div class="startdate">Date</div>
+    <div id="pickuptime">Pickup Time</div>
+    </div>
+    <div class="panel-body" >
+
+
+    <div class="routeno">Route No</div>
+    <div class="shift">Shift</div>
+    </div>
+
+    </div>
+
+
+
+
+    {{#rows}}
+    <div id="drop-row" class="panel panel-info">
+    {{#rowitem}}
+    <div class="fixed-panel panel-heading">
+        <div class="startdate"><a href="{{ CabMatesUrl }}" class="cabmateurl" target="_blank">{{ StartDate }}</a></div>
+        <div id="pickuptime">{{ PickupTime }} </div>
+    </div>
+    <div class="expand-panel panel-body" >
+
+
+        <div class="routeno"> {{ RouteNo }} </div>
+        <div class="shift">{{ Shift }} </div>
+
+            <div class="cabmates"></div>
+    </div>
+    {{/rowitem}}
+    </div>
+    {{/rows}}
+    </div>
+
+
+
+
+    </script>
+
+
+</body>
+</html>
